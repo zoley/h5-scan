@@ -30,7 +30,7 @@ export const Scan = () => {
   }
 
   const decode = (codeReader, selectDevicedId) => {
-    if(begin)return
+    if (begin) return
     setBegin(true)
     // selectDevicedId  为null 时默认选择面向环境的摄像头
     codeReader.decodeFromInputVideoDevice(null, 'video').then(result => {
@@ -55,13 +55,13 @@ export const Scan = () => {
   return <>
     <header className="title">请扫描二维码</header>
     <div className="scan-wrap">
-      <div className="scan-box">         
-        <div className={begin?'line begin':'line'}></div>
+      <div className="scan-box">
+        <div className={begin ? 'line begin' : 'line'}></div>
         <div className="angle"></div>
       </div>
-      <video id="video" width="250" height="250" style={{border: '1px solid #ddd',objectFit:'cover'}} />
+      <video id="video" width="250" height="250" style={{ border: '1px solid #ddd', objectFit: 'cover' }} />
     </div>
     <div style={{ color: '#f00', fontSize: '14px', height: '30px', textAlign: 'center', marginTop: '10px', padding: '0 10px' }}>{errMssage}</div>
-    <button className='btn' onClick={()=>decode(reader,devicedId)}>点击进行扫码</button>
+    <button className='btn' onClick={() => decode(reader, devicedId)}>点击进行扫码</button>
   </>
 }
