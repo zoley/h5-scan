@@ -30,8 +30,10 @@ export const Scan = () => {
   }
 
   const decode = (codeReader, selectDevicedId) => {
+    if(begin)return
     setBegin(true)
-    codeReader.decodeFromInputVideoDevice(selectDevicedId, 'video').then(result => {
+    // selectDevicedId  为null 时默认选择面向环境的摄像头
+    codeReader.decodeFromInputVideoDevice(null, 'video').then(result => {
       console.log(result)
       let text = result.text
       window.location.href = text
