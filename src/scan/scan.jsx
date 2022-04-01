@@ -30,6 +30,7 @@ export const Scan = () => {
   }
 
   const decode = (codeReader, selectDevicedId) => {
+    if(begin)return
     setBegin(true)
     codeReader.decodeFromInputVideoDevice(selectDevicedId, 'video').then(result => {
       console.log(result)
